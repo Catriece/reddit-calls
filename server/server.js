@@ -26,11 +26,11 @@ const chirps = [
 
 const filePath = path.join(__dirname, "chirps.json");
 
-writeFile(filePath, chirps, (err) => {
+writeFile(filePath, JSON.stringify(chirps), (err) => {
   if (err) {
     return console.error(err);
   } else {
-    console.log("Chirps written");
+    console.log("Chirps chirpped");
   }
 });
 
