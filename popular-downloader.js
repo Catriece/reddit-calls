@@ -15,10 +15,14 @@ fetch("https://reddit.com/r/programmingHumor.json")
         media.data.url.endsWith(".png") ||
         media.data.url.endsWith(".gif")
       ) {
-        writeFile(filePath, JSON.stringify(media), (err) => {
-          if (err) return console.error(err);
-          else console.log("New File Added to Downloads");
-        });
+        writeFile(
+          path.join(filePath, media.data.id),
+          JSON.stringify(media),
+          (err) => {
+            if (err) return console.error(err);
+            else console.log("New File Added to Downloads");
+          }
+        );
       }
     }
   })
